@@ -54,7 +54,7 @@ async function redirectToAuthCodeFlow(clientId: string) {
     const params = new URLSearchParams();
     params.append("client_id", clientId);
     params.append("response_type", "code");
-    params.append("redirect_uri", "https://mouri-e.github.io/SpotifyStats/callback");
+    params.append("redirect_uri", "https://mouri-e.github.io/SpotifyStats/#/callback");
     params.append("scope", "user-read-private user-read-email " +
     "user-read-playback-state user-modify-playback-state user-read-currently-playing" +
     " app-remote-control streaming playlist-read-private playlist-read-collaborative user-follow-read" +
@@ -93,7 +93,7 @@ async function getAccessToken(clientId: string, code: string): Promise<SpotifyAc
     params.append("client_id", clientId);
     params.append("grant_type", "authorization_code");
     params.append("code", code);
-    params.append("redirect_uri", "https://mouri-e.github.io/SpotifyStats/callback");
+    params.append("redirect_uri", "https://mouri-e.github.io/SpotifyStats/#/callback");
     params.append("code_verifier", verifier!);
 
     const result = await fetch(`https://accounts.spotify.com/api/token`, {
